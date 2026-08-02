@@ -110,3 +110,21 @@
 #define GL_STACK_OVERFLOW    0x0503
 #define GL_STACK_UNDERFLOW   0x0504
 #define GL_OUT_OF_MEMORY     0x0505
+
+/* Fog */
+#define GL_FOG          0x0B60
+#define GL_FOG_DENSITY  0x0B62
+#define GL_FOG_START    0x0B63
+#define GL_FOG_END      0x0B64
+#define GL_FOG_MODE     0x0B65
+#define GL_FOG_COLOR    0x0B66
+#define GL_EXP          0x0800
+#define GL_EXP2         0x0801
+//#define GL_LINEAR       0x2601
+
+#define GL_VENDOR               0x1F00
+#define GL_RENDERER             0x1F01
+#define GL_MAX_TEXTURE_SIZE     0x0D33
+#define GL_MAX_TEXTURE_UNITS    0x84E2
+#define GL_DEPTH_BITS           0x0D56
+#define GL_STENCIL_BITS         0x0D57

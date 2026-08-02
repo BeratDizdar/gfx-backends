@@ -8,10 +8,13 @@
     X(glGetError, ()) \
     /* Viewport */ \
     X(glViewport, (int, int, int, int)) \
+    X(glDepthRange, (float, float)) \
     /* Blend */ \
     X(glEnable, (int)) \
     X(glDisable, (int)) \
     X(glBlendFunc, (int, int)) \
+    X(glBlendEquation, (unsigned)) \
+    X(glBlendFuncSeparate, (unsigned, unsigned, unsigned, unsigned)) \
     /* Depth */ \
     X(glDepthFunc, (int)) \
     X(glDepthMask, (unsigned char)) \
@@ -29,10 +32,11 @@
     X(glDeleteBuffers, (int, const unsigned*)) \
     X(glBindBuffer, (unsigned, unsigned)) \
     X(glBufferData, (unsigned, long long, const void*, unsigned)) \
+    X(glBufferSubData, (unsigned, long long, long long, const void*)) \
     X(glEnableClientState, (int)) \
     X(glDisableClientState, (int)) \
-    X(glVertexPointer, (int, int, int, const void*)) \
-    X(glTexCoordPointer, (int, int, int, const void*)) \
+    X(glVertexPointer, (int, int, unsigned, const void*)) \
+    X(glTexCoordPointer, (int, int, unsigned, const void*)) \
     /* Texture */ \
     X(glGenTextures, (int, unsigned*)) \
     X(glDeleteTextures, (int, const unsigned*)) \
@@ -44,4 +48,5 @@
     X(glPixelStorei, (int, int)) \
     X(glClientActiveTexture, (int)) \
     X(glAlphaFunc, (int, float)) \
-    X(glTexSubImage2D, (int, int, int, int, int, int, int, int, const void*))
+    X(glTexSubImage2D, (int, int, int, int, int, int, int, int, const void*)) \
+    X(glGetString, (unsigned))
