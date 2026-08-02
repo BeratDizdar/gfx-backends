@@ -204,35 +204,7 @@ void id_Clear(unsigned char r, unsigned char g, unsigned char b, unsigned char a
 static id_api_props_t p;
 static void __id_initapiprops() {
     p.Device.Vendor = (const char*)glGetString(0x1F00);
-    p.Device.Renderer = (const char*)glGetString(0x1F01);
-    p.Device.GLVersion = (const char*)glGetString(0x1F02);
-    p.Device.GLSLVersion = (const char*)glGetString(0x8B8C);
-    
-    glGetIntegerv(0x90DC,&p.ShaderStorage.MaxCombinedBlock);
-    glGetIntegerv(0x90DD,&p.ShaderStorage.MaxBufferBindings);
-    glGetIntegerv(0x90DE,&p.ShaderStorage.MaxBlockSize);
-    glGetIntegerv(0x90DF,&p.ShaderStorage.BufferOffsetAlignment);
-
-    glGetIntegerv(0x8869,&p.VertexBuffer.MaxAttributes);
-    glGetIntegerv(0x82D9,&p.VertexBuffer.MaxAttributeRelativeOffset);
-    glGetIntegerv(0x82DA,&p.VertexBuffer.MaxAttributeBindings);
-    
+    p.Device.Renderer = (const char*)glGetString(0x1F01);    
     glGetIntegerv(0x0D33,&p.Texture.MaxSize);
-    glGetIntegerv(0x8073,&p.Texture.Max3DSize);
-    glGetIntegerv(0x851C,&p.Texture.MaxCubemapSize);
-    glGetIntegerv(0x8872,&p.Texture.MaxTextureImageUnits);
-    glGetIntegerv(0x88FF,&p.Texture.MaxArrayLayers);
-    glGetIntegerv(0x8905,&p.Texture.MaxTexelOffset);
-    glGetIntegerv(0x8D57,&p.Texture.MaxSamples);
-
-    glGetIntegerv(0x8B49,&p.Shader.MaxFragmentUniform);
-    glGetIntegerv(0x8B4A,&p.Shader.MaxVertexUniform);
-    glGetIntegerv(0x8B4C,&p.Shader.MaxVertexTextureImageUnit);
-    glGetIntegerv(0x8B4D,&p.Shader.MaxCombinedTextureImageUnit);
-    glGetIntegerv(0x9122,&p.Shader.MaxVertexOutComponents);
-    glGetIntegerv(0x9125,&p.Shader.MaxFragmentInComponents);
-    glGetIntegerv(0x8DE7,&p.Shader.MaxSubroutines);
-
-    glGetIntegerv(0x82F9,&p.State.MaxCullDistances);
 }
 const id_api_props_t* id_GetAPIProps() { return &p; }

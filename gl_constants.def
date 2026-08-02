@@ -1,0 +1,112 @@
+// gl_constants.def
+
+/* Clear bits */
+#define GL_DEPTH_BUFFER_BIT   0x00000100
+#define GL_STENCIL_BUFFER_BIT 0x00000400
+#define GL_COLOR_BUFFER_BIT   0x00004000
+
+/* Booleans */
+#define GL_FALSE 0
+#define GL_TRUE  1
+
+/* Primitive types (glDrawArrays) */
+#define GL_TRIANGLES 0x0004
+
+/* Depth/stencil/alpha test functions */
+#define GL_NEVER    0x0200
+#define GL_LESS     0x0201
+#define GL_EQUAL    0x0202
+#define GL_LEQUAL   0x0203
+#define GL_GREATER  0x0204
+#define GL_NOTEQUAL 0x0205
+#define GL_GEQUAL   0x0206
+#define GL_ALWAYS   0x0207
+
+/* Blend factors */
+#define GL_ZERO                0
+#define GL_ONE                 1
+#define GL_SRC_COLOR           0x0300
+#define GL_ONE_MINUS_SRC_COLOR 0x0301
+#define GL_SRC_ALPHA           0x0302
+#define GL_ONE_MINUS_SRC_ALPHA 0x0303
+#define GL_DST_ALPHA           0x0304
+#define GL_ONE_MINUS_DST_ALPHA 0x0305
+#define GL_DST_COLOR           0x0306
+#define GL_ONE_MINUS_DST_COLOR 0x0307
+
+/* Cull face */
+#define GL_FRONT          0x0404
+#define GL_BACK           0x0405
+#define GL_FRONT_AND_BACK 0x0408
+#define GL_CW             0x0900
+#define GL_CCW            0x0901
+
+/* Stencil ops */
+#define GL_KEEP    0x1E00
+#define GL_REPLACE 0x1E01
+#define GL_INCR    0x1E02
+#define GL_DECR    0x1E03
+#define GL_INVERT  0x150A
+
+/* Enable/Disable capability flags */
+#define GL_CULL_FACE    0x0B44
+#define GL_DEPTH_TEST   0x0B71
+#define GL_STENCIL_TEST 0x0B90
+#define GL_SCISSOR_TEST 0x0C11
+#define GL_BLEND        0x0BE2
+#define GL_ALPHA_TEST   0x0BC0
+#define GL_TEXTURE_2D   0x0DE1
+
+/* Vertex attrib data types */
+#define GL_BYTE           0x1400
+#define GL_UNSIGNED_BYTE  0x1401
+#define GL_SHORT          0x1402
+#define GL_UNSIGNED_SHORT 0x1403
+#define GL_INT            0x1404
+#define GL_UNSIGNED_INT   0x1405
+#define GL_FLOAT          0x1406
+
+/* Texture formats */
+#define GL_RGB  0x1907
+#define GL_RGBA 0x1908
+
+/* Texture filtering / wrapping */
+#define GL_NEAREST            0x2600
+#define GL_LINEAR             0x2601
+#define GL_TEXTURE_MAG_FILTER 0x2800
+#define GL_TEXTURE_MIN_FILTER 0x2801
+#define GL_TEXTURE_WRAP_S     0x2802
+#define GL_TEXTURE_WRAP_T     0x2803
+#define GL_REPEAT             0x2901
+#define GL_CLAMP_TO_EDGE      0x812F
+
+/* TexEnv (multitexture / lightmap) */
+#define GL_TEXTURE_ENV_MODE 0x2200
+#define GL_TEXTURE_ENV      0x2300
+#define GL_MODULATE         0x2100
+#define GL_DECAL            0x2101
+#define GL_ADD              0x0104
+
+/* Texture units */
+#define GL_TEXTURE0 0x84C0
+
+/* VBO */
+#define GL_ARRAY_BUFFER  0x8892
+#define GL_STATIC_DRAW   0x88E4
+#define GL_DYNAMIC_DRAW  0x88E8
+
+/* Client state arrays */
+#define GL_VERTEX_ARRAY       0x8074
+#define GL_TEXTURE_COORD_ARRAY 0x8078
+
+/* Pixel store */
+#define GL_UNPACK_ALIGNMENT 0x0CF5
+
+/* Errors */
+#define GL_NO_ERROR          0
+#define GL_INVALID_ENUM      0x0500
+#define GL_INVALID_VALUE     0x0501
+#define GL_INVALID_OPERATION 0x0502
+#define GL_STACK_OVERFLOW    0x0503
+#define GL_STACK_UNDERFLOW   0x0504
+#define GL_OUT_OF_MEMORY     0x0505

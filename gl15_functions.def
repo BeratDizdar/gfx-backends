@@ -1,0 +1,47 @@
+#define GL15_FUNCTIONS \
+    /* Matrix */ \
+    X(glLoadMatrixf, (const float*)) \
+    /* Clear & Draw (temel çizim döngüsü için zorunlu) */ \
+    X(glClear, (int)) \
+    X(glClearColor, (float, float, float, float)) \
+    X(glDrawArrays, (int, int, int)) \
+    X(glGetError, ()) \
+    /* Viewport */ \
+    X(glViewport, (int, int, int, int)) \
+    /* Blend */ \
+    X(glEnable, (int)) \
+    X(glDisable, (int)) \
+    X(glBlendFunc, (int, int)) \
+    /* Depth */ \
+    X(glDepthFunc, (int)) \
+    X(glDepthMask, (unsigned char)) \
+    /* Stencil */ \
+    X(glStencilFunc, (int, int, unsigned)) \
+    X(glStencilOp, (int, int, int)) \
+    X(glStencilMask, (unsigned)) \
+    /* Scissor */ \
+    X(glScissor, (int, int, int, int)) \
+    /* Cull face */ \
+    X(glCullFace, (int)) \
+    X(glFrontFace, (int)) \
+    /* Buffer (VBO + vertex layout) */ \
+    X(glGenBuffers, (int, unsigned*)) \
+    X(glDeleteBuffers, (int, const unsigned*)) \
+    X(glBindBuffer, (unsigned, unsigned)) \
+    X(glBufferData, (unsigned, long long, const void*, unsigned)) \
+    X(glEnableClientState, (int)) \
+    X(glDisableClientState, (int)) \
+    X(glVertexPointer, (int, int, int, const void*)) \
+    X(glTexCoordPointer, (int, int, int, const void*)) \
+    /* Texture */ \
+    X(glGenTextures, (int, unsigned*)) \
+    X(glDeleteTextures, (int, const unsigned*)) \
+    X(glBindTexture, (int, unsigned)) \
+    X(glTexImage2D, (int, int, int, int, int, int, int, int, const void*)) \
+    X(glTexParameteri, (int, int, int)) \
+    X(glTexEnvi, (int, int, int)) \
+    X(glActiveTexture, (int)) \
+    X(glPixelStorei, (int, int)) \
+    X(glClientActiveTexture, (int)) \
+    X(glAlphaFunc, (int, float)) \
+    X(glTexSubImage2D, (int, int, int, int, int, int, int, int, const void*))

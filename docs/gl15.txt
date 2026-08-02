@@ -18,11 +18,3 @@ Araştırdığım kadarıyla IRIX'ten kalma bir durummuş.
 [276/333]: Corollaries
 
 # Kullanılacak Komutlar ########################################################
-
-glBegin - glEnd
-glEnable - glDisable
-glViewport - glCullFace
-glScissor - glStencilOp - glStencilFunc - glDepthFunc - glBlendEquation - glBlendFuncSeparate - glBlendFunc
-glClear - glClearColor
-glDeleteBuffers - glGenBuffers - glBufferData - glBindBuffer - glBufferSubData
-glDeleteTextures - glTexImage2D - glActiveTexture - glBindTexture - glTexParameter - glLogicOp
