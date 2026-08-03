@@ -59,10 +59,10 @@ void gl15_draw_arrays(i32 topology, i32 first, i32 count) {
     glDrawArrays(topology, first, count);
 }
 
-u32 gl15_create_buffer(u32 id, u64 size, const void *data, u32 usage) {
+u32 gl15_create_buffer(u64 size, const void *data, u32 usage) {
     u32 b;
     glGenBuffers(1, &b);
-    if (data != (void*)0) {
+    if (data != 0) {
         glBindBuffer(GL_ARRAY_BUFFER, b);
         glBufferData(GL_ARRAY_BUFFER, size, data, usage);
     }

@@ -6,6 +6,7 @@
     X(glClearColor, (float, float, float, float)) \
     X(glDrawArrays, (int, int, int)) \
     X(glGetError, ()) \
+    X(glGetIntegerv, (unsigned, int*)) \
     /* Viewport */ \
     X(glViewport, (int, int, int, int)) \
     X(glDepthRange, (float, float)) \
@@ -52,4 +53,8 @@
     X(glGetString, (unsigned)) \
     X(glPointSize, (float)) \
     X(glLineWidth, (float)) \
-    X(glPolygonMode, (unsigned, unsigned))
+    X(glPolygonMode, (unsigned, unsigned)) \
+    /* Fog */ \
+    X(glFogi, (unsigned, int)) \
+    X(glFogfv, (unsigned, float*)) \
+    X(glFogf, (unsigned, float))

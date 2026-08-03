@@ -1,6 +1,9 @@
 #pragma once
-
 #include "primitive_types.h"
+
+// TODO:
+// - enumları ekle
+// - başlıkları düzelt
 
 typedef struct {
     struct {
@@ -16,17 +19,17 @@ typedef struct {
         i32 StencilBits;
     } Framebuffer;
 } gl15_props_t;
-const gl15_props_t* gl15_get_props();
+const gl15_props_t *gl15_get_props();
 
 void gl15_setup(void *(*get_proc_address)(const char *));
 
 /* OpenGL Operations */
-void gl15_raster_state(u32 polygon_face, u32 polygon_mode, f32 point_size);
+void gl15_raster_state(u32 polygon_face, u32 polygon_mode, f32 point_size, f32 line_width);
 
 void gl15_attribute_pointer(i32 ptr_type, i32 size, u32 type, i64 stride, void *offset);
 void gl15_draw_arrays(i32 topology, i32 first, i32 count);
 
-u32  gl15_create_buffer(u32 id, u64 size, const void *data, u32 usage);
+u32  gl15_create_buffer(u64 size, const void *data, u32 usage);
 void gl15_update_buffer(u32 id, u64 offset, u64 size, const void *data);
 void gl15_bind_buffer(u32 id);
 void gl15_delete_buffer(u32 id);
