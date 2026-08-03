@@ -16,5 +16,3 @@ Araştırdığım kadarıyla IRIX'ten kalma bir durummuş.
 [219/333]: Display Lists
 [272/333]: Invariance
 [276/333]: Corollaries
-
-# Kullanılacak Komutlar ########################################################

@@ -21,17 +21,16 @@ const gl15_props_t* gl15_get_props();
 void gl15_setup(void *(*get_proc_address)(const char *));
 
 /* OpenGL Operations */
-    /* Vertex Arrays */
+void gl15_raster_state(u32 polygon_face, u32 polygon_mode, f32 point_size);
+
 void gl15_attribute_pointer(i32 ptr_type, i32 size, u32 type, i64 stride, void *offset);
 void gl15_draw_arrays(i32 topology, i32 first, i32 count);
 
-    /* Buffer Object */
 u32  gl15_create_buffer(u32 id, u64 size, const void *data, u32 usage);
 void gl15_update_buffer(u32 id, u64 offset, u64 size, const void *data);
 void gl15_bind_buffer(u32 id);
 void gl15_delete_buffer(u32 id);
 
-/* Rasterization */
 void gl15_culling_state(u32 cull_face, u32 front_face);
 void gl15_fog_state(u32 mode, f32 r, f32 g, f32 b, f32 density, f32 start, f32 end);
 u32 gl15_create_texture(i32 width, i32 height, u32 format, const void *data);

@@ -39,7 +39,14 @@ void gl15_setup(void *(*get_proc_address)(const char *)) {
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 }
 
-void gl15_attribute_pointer(i32 ptr_type, i32 size, u32 type, i64 stride, void *offset) {
+void gl15_raster_state(u32 polygon_face, u32 polygon_mode, f32 point_size, f32 line_width) {
+    glPolygonMode(polygon_face, polygon_mode);
+    glPointSize(point_size);
+    glLineWidth(line_width);
+}
+
+void gl15_attribute_pointer(i32 ptr_type, i32 size, u32 type, i64 stride, void *offset)
+{
     if (ptr_type == 0) {
         glVertexPointer(size, type, stride, offset);
     }
