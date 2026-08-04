@@ -1,5 +1,5 @@
 #pragma once
-#include "primitive_types.h"
+#include "gfx_prim_t.h"
 
 // TODO:
 // - enumları ekle

@@ -1,7 +1,6 @@
-#include "gl15.h"
+#include "../gl15.h"
 #include "gl15_functions.def"
 #include "gl_constants.def"
-
 #define X(name, args) void*(*name)args;
     GL15_FUNCTIONS
 #undef X
@@ -45,8 +44,7 @@ void gl15_raster_state(u32 polygon_face, u32 polygon_mode, f32 point_size, f32 l
     glLineWidth(line_width);
 }
 
-void gl15_attribute_pointer(i32 ptr_type, i32 size, u32 type, i64 stride, void *offset)
-{
+void gl15_attribute_pointer(i32 ptr_type, i32 size, u32 type, i64 stride, void *offset) {
     if (ptr_type == 0) {
         glVertexPointer(size, type, stride, offset);
     }
@@ -107,7 +105,6 @@ u32 gl15_create_texture(i32 width, i32 height, u32 format, const void *data) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-
     return t;
 }
 
