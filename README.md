@@ -5,8 +5,9 @@
 
 ## References
 - [GLSLangSpec.3.30.pdf](https://registry.khronos.org/OpenGL/specs/gl/GLSLangSpec.3.30.pdf)
-- [glspec15.pdf](https://registry.khronos.org/OpenGL/specs/gl/glspec15.pdf)
 - [glspec33.core.pdf](https://registry.khronos.org/OpenGL/specs/gl/glspec33.core.pdf)
+- [glspec15.pdf](https://registry.khronos.org/OpenGL/specs/gl/glspec15.pdf)
+- [es1.1.xhtml](https://registry.khronos.org/OpenGL-Refpages/es1.1/xhtml/)
 
 ## Examples
 <details>
@@ -17,6 +18,7 @@
 #include "gfx-backends-main/gl15.h"
 #define CUI_IMPL
 #include "c-ui-main/cui.h"
+#define STBI_NO_SIMD
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 typedef struct {float x, y, u, v;} vertex_t;
