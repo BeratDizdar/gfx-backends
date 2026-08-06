@@ -16,10 +16,9 @@
 
 ```c
 #include "swl/swl.h"
-#include "gfx-backends/gl15_2.h"
+#include "gfx-backends/gl15/gl15.h"
 #define CUI_IMPL
 #include "c-ui/cui.h"
-typedef struct {float x, y, u, v;} vertex_t;
 
 int main() {
     swl_CreateWindow("X", 400, 300);
@@ -30,28 +29,24 @@ int main() {
         0xFFFF00FF, //ABGR
         0xFF00FF00, //ABGR
     };
-    u32 t = gl15_create_texture(2, 1, tex);
-    gl15_apply_sampling(t, GL_SAMPLE_PIXEL);
+    u32 t = gl15_texture_create(2, 1, tex);
+    gl15_texture_nearest(t);
 
-    cui_uv_rect_t r = cui_get_uv_rect(0, 0, 2, 1, (cui_texinfo_t){2, 1});
-    vertex_t v[4] = {
-        { -0.5f,  0.5f, r.uv[0], r.uv[1] },
-        { -0.5f, -0.5f, r.uv[2], r.uv[3] },
-        {  0.5f, -0.5f, r.uv[4], r.uv[5] },
-        {  0.5f,  0.5f, r.uv[6], r.uv[7] },
-    };
+    cui_set_surface_info(400, 300);
+    cui_set_texture_info(2, 1);
+
+    u32 b = gl15_buffer_create(sizeof(float) * 16);
+    gl15_buffer_memcpy(b, 0, sizeof(float) * 16, cui_get_tile(0, 0, 50, 50, 0, 0, 2, 1).v);
+    gl15_buffer_bind(b);
     
-    u32 b = gl15_malloc(sizeof(v));
-    gl15_memcpy(b, 0, sizeof(v), v);
-    gl15_bind_buffer(b);
-    gl15_attribute_state(GL_ATTR_V2F_T2F);
+    gl15_vertex_v2f_t2f();
+    gl15_texture_unit(t, 0);
     
     for (;!swl_ShouldClose();) {
         if (swl_IsKeyPressed(27)) swl_SendQuitEvent();
         gl15_clear(53, 75, 75, 255);
         
-        gl15_bind_buffer(b);
-        gl15_bind_texture(t, 0);
+        gl15_buffer_bind(b);
         gl15_draw_arrays(GL_QUADS, 0, 4);
         
         swl_GL_SwapBuffers();
@@ -59,8 +54,8 @@ int main() {
         swl_PassScheduler();
     }
  
-    gl15_delete_texture(t);
-    gl15_free(b);
+    gl15_texture_delete(t);
+    gl15_buffer_delete(b);
     swl_GL_DestroyContext();
     swl_CloseWindow();
     return 0;
