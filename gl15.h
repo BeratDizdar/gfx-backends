@@ -1,63 +1,65 @@
 #pragma once
 #include "gfx_prim_t.h"
 
-// TODO:
-// - enumları ekle
-// - başlıkları düzelt
+typedef enum {
+    GL_ATTR_V2F_T2F,
+    GL_ATTR_V3F_T2F,
+} gl15_attribute_format_t;
 
-typedef struct {
-    struct {
-        const char *Vendor;
-        const char *Renderer;
-    } Device;
-    struct {
-        i32 MaxSize;
-        i32 MaxUnits;
-    } Texture;
-    struct {
-        i32 DepthBits;
-        i32 StencilBits;
-    } Framebuffer;
-} gl15_props_t;
-const gl15_props_t *gl15_get_props();
+typedef enum {
+    GL_SAMPLE_PIXEL  = 0x2600,
+    GL_SAMPLE_LINEAR = 0x2601,
+} gl15_sampling_preset_t;
 
-void gl15_setup(void *(*get_proc_address)(const char *));
+typedef enum {
+    GL_POINTS         = 0x0000,
+    GL_LINES          = 0x0001,
+    GL_LINE_LOOP      = 0x0002,
+    GL_LINE_STRIP     = 0x0003,
+    GL_TRIANGLES      = 0x0004,
+    GL_TRIANGLE_STRIP = 0x0005,
+    GL_TRIANGLE_FAN   = 0x0006,
+    GL_QUADS          = 0x0007,
+} gl15_topology_t;
 
-/* OpenGL Operations */
-void gl15_raster_state(u32 polygon_face, u32 polygon_mode, f32 point_size, f32 line_width);
+typedef enum {
+    GL_CMP_NEVER    = 0x0200,
+    GL_CMP_LESS     = 0x0201,
+    GL_CMP_EQUAL    = 0x0202,
+    GL_CMP_LEQUAL   = 0x0203,
+    GL_CMP_GREATER  = 0x0204,
+    GL_CMP_NOTEQUAL = 0x0205,
+    GL_CMP_GEQUAL   = 0x0206,
+    GL_CMP_ALWAYS   = 0x0207,
+} gl15_compare_func_t;
 
-void gl15_attribute_pointer(i32 ptr_type, i32 size, u32 type, i64 stride, void *offset);
-void gl15_draw_arrays(i32 topology, i32 first, i32 count);
+/* SETUP **********************************************************************/
+void gl15_setup(void*(*get_proc_address)(const char*));
 
-u32  gl15_create_buffer(u64 size, const void *data, u32 usage);
-void gl15_update_buffer(u32 id, u64 offset, u64 size, const void *data);
+/* VERTEX ARRAYS **************************************************************/
+void gl15_attribute_state(gl15_attribute_format_t f);
+void gl15_draw_arrays(gl15_topology_t t, i32 first, i32 count);
+
+/* BUFFER OBJECT **************************************************************/
+u32  gl15_malloc(u64 size);
+void gl15_memcpy(u32 id, u64 offset, u64 size, const void* data);
 void gl15_bind_buffer(u32 id);
-void gl15_delete_buffer(u32 id);
+void gl15_free(u32 id);
 
-void gl15_culling_state(u32 cull_face, u32 front_face);
-void gl15_fog_state(u32 mode, f32 r, f32 g, f32 b, f32 density, f32 start, f32 end);
-u32 gl15_create_texture(i32 width, i32 height, u32 format, const void *data);
-void gl15_update_texture(u32 id, i32 x, i32 y, i32 width, i32 height, u32 format, const void *data);
-void gl15_bind_texture(u32 id, i32 slot);
+/* TEXTURE ********************************************************************/
+u32  gl15_create_texture(i64 width, i64 height, void *data);
+void gl15_apply_sampling(u32 id, gl15_sampling_preset_t s);
+void gl15_bind_texture(u32 id, u32 slot);
 void gl15_delete_texture(u32 id);
-void gl15_texture_sampling(u32 id, u32 min_filter, u32 mag_filter, u32 wrap_s, u32 wrap_t);
-void gl15_texture_env(i32 slot, u32 mode);
-void gl15_client_active_texture(i32 slot);
 
-/* Coordinate Transformations */
-void gl15_set_coord_transform(i32 x, i32 y, i32 w, i32 h, f32 n, f32 f);
-void gl15_load_matrix(const f32 *m);
+/* RASTERIZATION **************************************************************/
+void gl15_depth_range(f32 n, f32 f);
+void gl15_viewport(i32 x, i32 y, i32 w, i32 h);
 
-/* Per-Fragment Operations */
-void gl15_scissor_test(i32 left, i32 bottom, i32 width, i32 height);
-void gl15_alpha_test(u32 func, f32 ref);
-void gl15_stencil_test_func(u32 func, i32 ref, u32 mask);
-void gl15_stencil_test_op(u32 sfail, u32 dpfail, u32 dppass);
-void gl15_depth_test(u32 func);
-void gl15_blend_test_func_separate(u32 srcRGB, u32 dstRGB, u32 srcAlpha, u32 dstAlpha);
-void gl15_blend_test_func(u32 src, u32 dst);
+/* FOG ************************************************************************/
+void gl15_fog(u32 mode, f32 r, f32 g, f32 b, f32 density, f32 start, f32 end);
 
-/* Whole Framebuffer Operations */
-void gl15_stencil_mask(i32 mask);
-void gl15_depth_mask(u32 mask);
+/* PER-FRAGMENT OPERATIONS ****************************************************/
 void gl15_clear(u8 r, u8 g, u8 b, u8 a);
+void gl15_scissor_test(f32 x, f32 y, f32 w, f32 h);
+void gl15_alpha_test(gl15_compare_func_t func, f32 ref);
