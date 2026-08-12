@@ -1,5 +1,18 @@
 #include "igl.h"
 
+/*
+- ayır!
++ neyi?
+- performanstan ödün verebileceklerini.
++ ama ne için?
+- fonksiyon sayısını azaltmalısın.
++ nelerden ödün verebilirim ve nasıl vermeliyim?
+- başlangıç ve bitiş fonksiyonlarında performans payı var.
++ nasıl olacak bu?
+- switch case + enum kullanarak
++ ah şimdi anladım.
+*/
+
 #ifndef PRINTF
     #include <stdio.h>
     #define PRINTF(fmt, ...) printf(fmt, __VA_ARGS__)

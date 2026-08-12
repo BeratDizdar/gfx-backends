@@ -1,5 +1,5 @@
 #pragma once
-#include "../gfx_prim_t.h"
+#include "../types.h"
 
 typedef enum {
     GL_POINTS         = 0x0000,
