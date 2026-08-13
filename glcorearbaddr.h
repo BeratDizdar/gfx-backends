@@ -20,7 +20,7 @@
     X(glGetProgramiv, (uint32_t program, uint32_t pname, int32_t* params)) \
     X(glGetProgramInfoLog, (uint32_t program, int32_t maxLength, int32_t* length, char* infoLog)) \
     X(glUseProgramStages, (uint32_t pipeline, uint32_t stage, uint32_t program)) \
-    X(glDeleteProgram, (uint32_t pipeline)) \
+    X(glDeleteProgram, (uint32_t program)) \
     X(glCreateProgramPipelines, (int32_t n, uint32_t* pipelines)) \
     X(glBindProgramPipeline, (uint32_t pipeline)) \
     X(glDeleteProgramPipelines, (int32_t n, const uint32_t* pipelines))
@@ -28,11 +28,16 @@
 #define GLCOREARBADDR_COMMANDS \
     X(glDrawArraysInstancedBaseInstance, (uint32_t mode, int32_t first, int32_t count, int32_t primcount, int32_t baseinstance))
 
+#define GLCOREARBADDR_DUMMY \
+    X(glGenVertexArrays, (int32_t n, uint32_t *array)) \
+    X(glBindVertexArray, (uint32_t array))
+
 #define GLCOREARBADDR \
     GLCOREARBADDR_CLEAR \
     GLCOREARBADDR_BUFFERS \
     GLCOREARBADDR_SHADERS \
-    GLCOREARBADDR_COMMANDS
+    GLCOREARBADDR_COMMANDS \
+    GLCOREARBADDR_DUMMY
 
 #define X(name, args) void*(*name)args;
     GLCOREARBADDR

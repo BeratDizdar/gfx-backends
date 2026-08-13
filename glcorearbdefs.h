@@ -1,4 +1,9 @@
 #pragma once
+
+/* FALAN FILAN ISTE */
+#define GL_FALSE                          0
+#define GL_TRUE                           1
+
 /* glClear */
 #define GL_DEPTH_BUFFER_BIT               0x00000100
 #define GL_STENCIL_BUFFER_BIT             0x00000400
@@ -65,6 +70,14 @@
 #define GL_GEOMETRY_VERTICES_OUT          0x8916
 #define GL_GEOMETRY_INPUT_TYPE            0x8917
 #define GL_GEOMETRY_OUTPUT_TYPE           0x8918
+
+/* glUseProgramStages */
+#define GL_VERTEX_SHADER_BIT              0x00000001
+#define GL_TESS_CONTROL_SHADER_BIT        0x00000008
+#define GL_TESS_EVALUATION_SHADER_BIT     0x00000010
+#define GL_GEOMETRY_SHADER_BIT            0x00000004
+#define GL_FRAGMENT_SHADER_BIT            0x00000002
+#define GL_COMPUTE_SHADER_BIT             0x00000020
 
 /* glDrawArraysInstancedBaseInstance */
 #define GL_POINTS                         0x0000
