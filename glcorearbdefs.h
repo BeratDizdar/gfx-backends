@@ -31,6 +31,17 @@
 //#define GL_TRANSFORM_FEEDBACK_BUFFER      0x8C8E
 //#define GL_UNIFORM_BUFFER                 0x8A11
 
+/* glNamedBufferStorage */
+#define GL_DYNAMIC_STORAGE_BIT            0x0100
+#define GL_MAP_READ_BIT                   0x0001
+#define GL_MAP_WRITE_BIT                  0x0002
+#define GL_MAP_PERSISTENT_BIT             0x0040
+#define GL_MAP_COHERENT_BIT               0x0080
+#define GL_CLIENT_STORAGE_BIT             0x0200
+
+/* glMemoryBarrier */
+#define GL_SHADER_STORAGE_BARRIER_BIT     0x00002000
+
 /* glMapBufferRange */
 #define GL_MAP_READ_BIT                   0x0001
 #define GL_MAP_WRITE_BIT                  0x0002

@@ -26,7 +26,9 @@
     X(glDeleteProgramPipelines, (int32_t n, const uint32_t* pipelines))
 
 #define GLCOREARBADDR_COMMANDS \
-    X(glDrawArraysInstancedBaseInstance, (uint32_t mode, int32_t first, int32_t count, int32_t primcount, int32_t baseinstance))
+    X(glDrawArraysInstancedBaseInstance, (uint32_t mode, int32_t first, int32_t count, int32_t primcount, int32_t baseinstance)) \
+    X(glDispatchCompute, (uint32_t num_groups_x, uint32_t num_groups_y, uint32_t num_groups_z)) \
+    X(glMemoryBarrier, (uint32_t type))
 
 #define GLCOREARBADDR_DUMMY \
     X(glGenVertexArrays, (int32_t n, uint32_t *array)) \
